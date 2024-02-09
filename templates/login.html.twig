@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>
+            UserIdentifier: {{ user.email }}
+            <br />
+            Enabled: {{ user.enabled ? 'yes' : 'no' }}
+            <br />
+            Authenticated: {{ (app.user is not null) ? 'yes' : 'no' }}
+            <br />
+            <a href="{{ path('toggle') }}">Enable/Disable</a>
+        </div>
+        <hr>
+        <form action="{{ path('login') }}" method="post" autocomplete="off">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <input type="email" name="_username" tabindex="1" value="email@me.me">
+            <input type="text" name="_password" tabindex="2" value="p@ssword"><!-- yolo -->
+            <br />
+            <button type="submit">Login</button>
+        </form>
+        <br />
+        <a href="{{ path('anonymous') }}">Manual Login</a>
+    </body>
+</html>

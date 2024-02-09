@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div>
+            UserIdentifier: {{ user.email }}
+            <br />
+            Enabled: {{ user.enabled ? 'yes' : 'no' }}
+            <br />
+            Authenticated: {{ (app.user is not null) ? 'yes' : 'no' }}
+            <br />
+            <a href="{{ logout_path() }}">Logout</a>
+        </div>
+    </body>
+</html>
